@@ -44,4 +44,4 @@ $(word 4, $(OBJ_FILES)): $(word 4, $(SRC_FILES))
 
 .PHONY: clean
 clean:
-	rm -rf build/*.o include/*.gch build
+	rm -rf object/*.o include/*.gch build
