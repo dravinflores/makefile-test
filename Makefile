@@ -26,21 +26,21 @@ OBJ_FILES := $(OBJECT)/main.o $(OBJECT)/say_hello.o $(OBJECT)/student.o \
 build: $(OBJ_FILES)
 	$(CC) $(CXXFLAGS) $^ -o $@
 
-# For some odd reason, omitting the header files allows for the '-o' flag to be
-# used properly. Without this omission, an erroneous error will be thrown.
-# Unfortunately, this also means that make will not rebuild if there is a 
-# change in the header files. Needs more research.
-$(word 1, $(OBJ_FILES)): $(word 1, $(SRC_FILES)) 
-	$(CC) $(CXXFLAGS) -c $^ -o $@
+# main.o
+$(word 1, $(OBJ_FILES)): $(word 1, $(SRC_FILES)) $(INC_FILES) 
+	$(CC) $(CXXFLAGS) -c $< -o $@
 
-$(word 2, $(OBJ_FILES)): $(word 2, $(SRC_FILES))
-	$(CC) $(CXXFLAGS) -c $^ -o $@
+# say_hello.o
+$(word 2, $(OBJ_FILES)): $(word 2, $(SRC_FILES)) $(word 1, $(INC_FILES))
+	$(CC) $(CXXFLAGS) -c $< -o $@
 
-$(word 3, $(OBJ_FILES)): $(word 3, $(SRC_FILES))
-	$(CC) $(CXXFLAGS) -c $^ -o $@
+# student.o
+$(word 3, $(OBJ_FILES)): $(word 3, $(SRC_FILES)) $(word 2, $(INC_FILES))
+	$(CC) $(CXXFLAGS) -c $< -o $@
 
-$(word 4, $(OBJ_FILES)): $(word 4, $(SRC_FILES))
-	$(CC) $(CXXFLAGS) -c $^ -o $@
+# temperature.o
+$(word 4, $(OBJ_FILES)): $(word 4, $(SRC_FILES)) $(word 3, $(INC_FILES))
+	$(CC) $(CXXFLAGS) -c $< -o $@
 
 .PHONY: clean
 clean:
