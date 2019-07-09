@@ -10,7 +10,7 @@ OBJECT    := object
 
 # Compiler related variables
 CC        := clang++
-CXXFLAGS  := -std=c++17 -Wall -W -I $(INCLUDE)
+CXXFLAGS  := -std=c++17 -Wall -Wextra -Werror -pedantic -I $(INCLUDE)
 
 # Paths to the files themselves
 SRC_FILES := $(SOURCE)/main.cpp $(SOURCE)/say_hello.cpp $(SOURCE)/student.cpp \

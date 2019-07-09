@@ -4,7 +4,7 @@
 #include <temperature.hpp>
 #include <say_hello.hpp>
 
-int main(int argc, char** argv)
+int main()
 {
     std::cout << "86 F = " << convert_temperature(MODE_FAHRENHEIT, 86) << "\n";
     say_hello("Me");
