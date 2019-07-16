@@ -41,7 +41,7 @@ mentioned, but omit it when calling clang. With a few searches, I confirmed that
 there was no need to include a mention of the header file when calling clang.
 
 While such an easy fix were I to have known this from the start, it has 
-nonetheless proven a quite valuavble piece of information. And I have learned
+nonetheless proven a quite valuable piece of information. And I have learned
 something new about the compilation process, which amounts to far more knowledge
 obtained than just knowing that I didn't have to insert header files when 
 compiling with clang.
